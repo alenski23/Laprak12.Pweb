@@ -6,37 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpan Data Mahasiswa (HTML Saja)</title>
     <style>
-        tubuh {
-            Jenis huruf: Arial, sans-serif;
-            latar belakang: gradien linier (ke kanan, #12c2e9, #c471ed, #f64f59);
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
             margin: 0;
             padding: 0;
             padding-bottom: 60px;
         }
  
         .judul-wrapper {
-            perataan teks: tengah;
+            text-align: center;
             padding: 20px;
         }
  
         .judul-teks {
-            ukuran font: 24px;
+            font-size: 24px;
             font-family: "Courier New", Courier, monospace;
-            ketebalan huruf: tebal;
+            font-weight: bold;
         }
  
-        membentuk {
-            tampilan: fleksibel;
-            arah-fleksibel: kolom;
-            sejajarkan item: tengah;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
  
-        meja {
-            warna latar belakang: #ffffff;
-            radius batas: 8px;
+        table {
+            background-color: #ffffff;
+            border-radius: 8px;
             padding: 20px;
-            bayangan kotak: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            lebar: 58%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            width: 58%;
         }
  
         td {
@@ -44,86 +44,86 @@
         }
  
         input[type="text"],
-        area teks,
-        pilih {
-            lebar: 100%;
+        textarea,
+        select {
+            width: 100%;
             padding: 10px;
-            radius batas: 4px;
-            batas: 1px solid #ccc;
-            ukuran kotak: kotak-batas;
-            Jenis huruf: Arial, sans-serif;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
  
         input[type="submit"],
         input[type="reset"] {
-            warna latar belakang: #4CAF50;
-            batas: tidak ada;
-            warna: putih;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
             padding: 15px 32px;
-            perataan teks: tengah;
-            dekorasi teks: tidak ada;
-            tampilan: blok sebaris;
-            ukuran font: 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
             margin: 4px 2px;
-            kursor: penunjuk;
-            radius batas: 4px;
+            cursor: pointer;
+            border-radius: 4px;
         }
  
         input[type="reset"] {
-            warna latar belakang: #f44336;
+            background-color: #f44336;
         }
  
         .hasil-wrapper {
-            lebar: 58%;
-            margin: 30px otomatis 0 otomatis;
+            width: 58%;
+            margin: 30px auto 0 auto;
         }
  
         .hasil-judul {
-            warna: #fff;
-            ukuran font: 20px;
-            ketebalan huruf: tebal;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
             margin-bottom: 15px;
-            bayangan teks: 1px 1px 2px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
  
         .kartu-mahasiswa {
-            latar belakang: rgba(255, 255, 255, 0.95);
-            radius batas: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
             padding: 15px 20px;
             margin-bottom: 15px;
-            bayangan kotak: 0px 0px 8px rgba(0, 0, 0, 0.15);
-            perataan teks: kiri;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+            text-align: left;
         }
  
         .kartu-mahasiswa .nama {
-            ukuran font: 18px;
-            ketebalan huruf: tebal;
-            warna: #333;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
         }
  
         .kartu-mahasiswa .baris-info {
-            margin-atas: 8px;
-            ukuran font: 14px;
-            warna: #555;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #555;
         }
  
         .kartu-mahasiswa .label {
-            ketebalan huruf: tebal;
-            warna: #333;
+            font-weight: bold;
+            color: #333;
         }
  
         .kartu-mahasiswa .deskripsi {
-            margin-atas: 10px;
+            margin-top: 10px;
             padding-top: 10px;
-            batas atas: 1px solid #eee;
-            ukuran font: 14px;
-            warna: #444;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #444;
         }
  
         .kosong {
-            warna: #fff;
-            perataan teks: tengah;
-            gaya huruf: miring;
+            color: #fff;
+            text-align: center;
+            font-style: italic;
         }
     </style>
 </head>
@@ -131,7 +131,7 @@
 <body>
  
     <div class="judul-wrapper">
-        <span class="judul-teks">FORMULIR DATA MAHASISWA</span>
+        <span class="judul-teks">FORM DATA MAHASISWA</span>
     </div>
  
     <form id="formMahasiswa">
@@ -162,7 +162,7 @@
             </tr>
  
             <tr>
-                <td></td>
+                <td>&nbsp;</td>
                 <td>
                     <input type="submit" value="Kirim">
                     <input type="reset" value="Batal">
@@ -184,44 +184,44 @@
         const jumlahData = document.getElementById("jumlahData");
         const pesanKosong = document.getElementById("pesanKosong");
  
-        misalkan dataMahasiswa = [];
+        let dataMahasiswa = [];
  
         form.addEventListener("submit", function (e) {
             e.preventDefault();
  
-            const nama = document.getElementById("nama").value.trim();
-            const nim = document.getElementById("nim").value.trim();
-            const prodi = document.getElementById("prodi").value.trim();
-            const email = document.getElementById("email").value.trim();
+            const nama   = document.getElementById("nama").value.trim();
+            const nim    = document.getElementById("nim").value.trim();
+            const prodi  = document.getElementById("prodi").value.trim();
+            const email  = document.getElementById("email").value.trim();
             const alamat = document.getElementById("alamat").value.trim();
  
-            jika (nama === "" || nim === "" || email === "") {
+            if (nama === "" || nim === "" || email === "") {
                 alert("Nama, NIM, dan Email wajib diisi!");
-                kembali;
+                return;
             }
  
-            const waktu = Tanggal baru().toLocaleString("id-ID");
+            const waktu = new Date().toLocaleString("id-ID");
  
             dataMahasiswa.unshift({ waktu, nama, nim, prodi, email, alamat });
  
             tampilkanData();
-            formulir.atur ulang();
+            form.reset();
         });
  
-        fungsi tampilkanData() {
+        function tampilkanData() {
             jumlahData.textContent = dataMahasiswa.length;
  
-            if (dataMahasiswa.panjang === 0) {
+            if (dataMahasiswa.length === 0) {
                 daftarData.innerHTML = '<p class="kosong">Belum ada data yang disimpan.</p>';
-                kembali;
+                return;
             }
  
-            daftarData.innerHTML = dataMahasiswa.map(fungsi (d) {
-                kembali `
+            daftarData.innerHTML = dataMahasiswa.map(function (d) {
+                return `
                     <div class="kartu-mahasiswa">
                         <div class="nama">${escapeHtml(d.nama)}</div>
                         <div class="baris-info">
-                            <span class="label">NIM:</span> ${escapeHtml(d.nim)}  |
+                            <span class="label">NIM:</span> ${escapeHtml(d.nim)} &nbsp;|&nbsp;
                             <span class="label">Prodi:</span> ${escapeHtml(d.prodi)}
                         </div>
                         <div class="baris-info">
@@ -230,13 +230,13 @@
                         ${d.alamat ? `<div class="deskripsi"><span class="label">Alamat:</span> ${escapeHtml(d.alamat)}</div>` : ""}
                     </div>
                 `;
-            }).bergabung("");
+            }).join("");
         }
  
-        fungsi escapeHtml(teks) {
+        function escapeHtml(teks) {
             const div = document.createElement("div");
             div.textContent = teks;
-            kembalikan div.innerHTML;
+            return div.innerHTML;
         }
     </script>
  
